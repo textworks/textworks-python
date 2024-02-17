@@ -67,7 +67,7 @@ typing = ["typing-extensions (>=4.8)"]
 
 [[package]]
 name = "fsspec"
-version = "2023.12.2"
+version = "2024.2.0"
 description = "File-system specification"
 category = "main"
 optional = false
@@ -88,7 +88,7 @@ github = ["requests"]
 gs = ["gcsfs"]
 gui = ["panel"]
 hdfs = ["pyarrow (>=1)"]
-http = ["requests", "aiohttp (!=4.0.0a0,!=4.0.0a1)"]
+http = ["aiohttp (!=4.0.0a0,!=4.0.0a1)"]
 libarchive = ["libarchive-c"]
 oci = ["ocifs"]
 s3 = ["s3fs"]
@@ -107,7 +107,7 @@ python-versions = ">=3.7"
 
 [[package]]
 name = "httpcore"
-version = "1.0.2"
+version = "1.0.3"
 description = "A minimal low-level HTTP client."
 category = "main"
 optional = false
@@ -121,7 +121,7 @@ h11 = ">=0.13,<0.15"
 asyncio = ["anyio (>=4.0,<5.0)"]
 http2 = ["h2 (>=3,<5)"]
 socks = ["socksio (>=1.0.0,<2.0.0)"]
-trio = ["trio (>=0.22.0,<0.23.0)"]
+trio = ["trio (>=0.22.0,<0.24.0)"]
 
 [[package]]
 name = "httpx"
@@ -183,7 +183,7 @@ python-versions = ">=3.5"
 
 [[package]]
 name = "numpy"
-version = "1.26.3"
+version = "1.26.4"
 description = "Fundamental package for array computing in Python"
 category = "main"
 optional = false
@@ -273,7 +273,7 @@ python-versions = ">=3.7"
 
 [[package]]
 name = "tokenizers"
-version = "0.15.1"
+version = "0.15.2"
 description = ""
 category = "main"
 optional = false
@@ -289,7 +289,7 @@ dev = ["tokenizers"]
 
 [[package]]
 name = "tqdm"
-version = "4.66.1"
+version = "4.66.2"
 description = "Fast, Extensible Progress Meter"
 category = "main"
 optional = false
@@ -394,7 +394,7 @@ zstd = ["zstandard (>=0.18.0)"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "a8d4d2db206a37e7c0934d0dad0137029cf2cbf8a6b74a5142f420377ed0e14c"
+content-hash = "83cff1c0b20b6abb484a2829e1cdc362bf102f7bac91602bf9c94f999cb760a8"
 
 [metadata.files]
 anyio = []
