@@ -13,6 +13,7 @@ load_dotenv()
 
 ENV_VAR_API_KEY = "TEXTWORKS_API_KEY"
 ENV_VAR_TEXTWORKS_URL = "TEXTWORKS_URL"
+ENV_VAR_RUN_ID = "TEXTWORKS_RUN_ID"
 
 TEXTWORKS_URL = "https://text.works/api/"
 if ENV_VAR_TEXTWORKS_URL in os.environ:
@@ -55,7 +56,7 @@ class TextworksLogger:
     @requires_apikey
     def log(
         self,
-        data: Dict[str, int],
+        data: Dict[str, float],
         step: Optional[int] = None,
         commit: Optional[bool] = None
     ) -> None:
@@ -96,3 +97,19 @@ class TextworksLogger:
 
     def commit(self):
         self.step += 1
+
+class TextworksCallback(TrainerCallback):
+    def __init__(self):
+        if not ENV_VAR_RUN_ID in os.environ:
+            raise ValueError("No run ID found. Set the TEXTWORKS_RUN_ID environment variable to log to a run.")
+        run_id = os.environ[ENV_VAR_RUN_ID]
+        # If no API key is provided, the logger will look for the TEXTWORKS_API_KEY environment variable
+        api_key = None
+
+        self.logger = TextworksLogger(run_id, api_key)
+
+    def on_log(self, args, state, control, model, logs, **kwargs):
+        self.logger.log(
+            data=logs,
+            step=state.global_step,
+        )
